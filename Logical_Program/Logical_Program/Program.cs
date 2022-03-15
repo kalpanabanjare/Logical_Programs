@@ -42,11 +42,34 @@ namespace Logical_Program
             else
                 Console.WriteLine("The number is not perfect.");
         }
+
+        // UC3 Prime Number
+
+        public void PrimeNumber()
+        {
+            int result = 0;
+            int flag = 0;
+            Console.Write("Enter the Number to check Prime: ");
+            int num = int.Parse(Console.ReadLine());
+            result = num / 2;
+            for (int i = 2; i <= result; i++)
+            {
+                if (num % i == 0)
+                {
+                    Console.WriteLine("Number is not Prime");
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0)
+                Console.WriteLine("Number is Prime");
+        }
         public static void Main(string[] args)
         {
             Console.WriteLine("Enter a number for problem");
             Console.WriteLine("1 for Fibonacci Series");
             Console.WriteLine("2 for Perfect Number");
+            Console.WriteLine("3 for Prime Number");
             int Problem = Convert.ToInt32(Console.ReadLine());
             LogicalPrograms logicalProgram = new LogicalPrograms();
             
@@ -58,6 +81,9 @@ namespace Logical_Program
                 case 2:
                     logicalProgram.PerfectNumber();
                     break ;
+                case 3:
+                    logicalProgram.PrimeNumber();
+                    break;
                 default:
                     Console.WriteLine("Invalid Input");
                     break;
