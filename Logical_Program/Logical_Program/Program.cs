@@ -64,12 +64,30 @@ namespace Logical_Program
             if (flag == 0)
                 Console.WriteLine("Number is Prime");
         }
+
+        // UC 4 Reverce Number
+
+        public void ReverceNumber()
+        {
+            int reverse = 0;
+            Console.WriteLine("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+            while (num != 0)
+            {
+                int rem = num % 10;
+                reverse = reverse * 10 + rem;
+                num /= 10;
+            }
+            Console.WriteLine("Reversed Number: " + reverse);
+        }
+
         public static void Main(string[] args)
         {
             Console.WriteLine("Enter a number for problem");
             Console.WriteLine("1 for Fibonacci Series");
             Console.WriteLine("2 for Perfect Number");
             Console.WriteLine("3 for Prime Number");
+            Console.WriteLine("4 for Reverce Number");
             int Problem = Convert.ToInt32(Console.ReadLine());
             LogicalPrograms logicalProgram = new LogicalPrograms();
             
@@ -83,6 +101,9 @@ namespace Logical_Program
                     break ;
                 case 3:
                     logicalProgram.PrimeNumber();
+                    break;
+                case 4:
+                    logicalProgram.ReverceNumber();
                     break;
                 default:
                     Console.WriteLine("Invalid Input");
